@@ -1,3 +1,15 @@
+// statements and expressions
+// Expression is a piece of code that produces value :-
+console.log(3 + 4) // 7
+
+// Statement is a bigger piece of code that is executed and which does not produce a value by it self
+if (23 > 15) {
+    const str = '23 is bigger'
+}
+
+// templete literls does not support statements
+
+
 if (true) console.log("Hello \n\Hunuman 🚀");
 
 if (true) console.log(`Hollo 
@@ -24,3 +36,4 @@ console.log(Boolean(undefined)) // false
 console.log(Boolean('Laxmana')) // true
 console.log(Boolean({})) // true
 console.log(Boolean('')) // false
+

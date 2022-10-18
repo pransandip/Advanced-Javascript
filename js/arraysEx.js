@@ -5,5 +5,5 @@ new$array[1] = 'sandy'
 console.log(new$array)
 
 const user$name = 'sandy001'
-const person = [user$name, 2022 - 1994, 'coder']
+const person = [user$name, 2022 - 1995, 'coder']
 console.log(person)
