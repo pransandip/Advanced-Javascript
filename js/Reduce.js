@@ -35,7 +35,7 @@ const names = ['LG', 'Kiwi', 'Dior', 'BMW']
 const new_string = names.reduce((str, name) => str + name, "")
 console.log(new_string)
 
-// not the best possible way
+// This is not the best possible way
 const new_string2 = names.reduce((str, name, index) => str + (index > 0 ? ", " : "") + name, "")
 console.log(new_string2)
 
@@ -65,6 +65,10 @@ console.log(testArray)
 const objA = { name: 'auturo', age: 53, gender: 'male' };
 const objB = { employed: 'auturo', ownMessage: "Gift", token: "tok_1M2YRhJmR8D0Lrgbamjxyh6K" };
 const array = [objA, objB];
+
+const o = { ...objA, ...objB }
+console.log(o)
+
 const merge = array.reduce((a, c) => Object.assign(a, c), {})
 console.log(merge)
 
@@ -121,10 +125,42 @@ console.log(array_filler)
 
 
 //reduce to object
-
 const num_set = [12, 15, 12, 2, 6, 6, 2, 12]
+
 const lookup = {};
 for (const number of num_set) {
-    lookup[number] = lookup[number] + 1
+    lookup[number] = (lookup[number] ?? 0) + 1
 }
-lookup
+console.log(lookup)
+
+// BREAK
+test = {}
+test[1] = (test[1] ?? 0) + 1
+console.log(test)
+
+
+const result_ = num_set.reduce((lookup, value) => ({
+    ...lookup,
+    [value]: (lookup[value] ?? 0) + 1
+}), {})
+console.log(result_)
+
+// BREAK
+console.log(Math.min(Infinity, 4))
+console.log(Math.max(Infinity, 4))
+console.log(Math.max(-Infinity, 4))
+
+const min_value = num_set.reduce(({ min, max }, value) => ({
+    min: Math.min(min, value),
+    max: Math.max(max, value),
+}), {
+    min: Infinity,
+    max: -Infinity
+})
+console.log(min_value)
+
+
+// Reduce with includes
+const _numbers = [1, 2, 3, 4, 5];
+const _temp = _numbers.reduce((includes, value) => (includes ? includes : value === 3), false)
+console.log(_temp)
