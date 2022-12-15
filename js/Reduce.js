@@ -162,5 +162,63 @@ console.log(min_value)
 
 // Reduce with includes
 const _numbers = [1, 2, 3, 4, 5];
-const _temp = _numbers.reduce((includes, value) => (includes ? includes : value === 3), false)
+const temp_ = _numbers.reduce((includes, value) => (includes ? includes : value === 3), false)
+const _temp = _numbers.reduce((includes, value) => (includes ? includes : value === 10), false)
+console.log(temp_)
 console.log(_temp)
+
+
+const hourAndMinutes = (minutes) => {
+    var h = Math.floor(minutes / 60);
+    var m = minutes % 60;
+    h = h < 10 ? '0' + h : h;
+    m = m < 10 ? '0' + m : m;
+    return h + ':' + m;
+}
+console.log(hourAndMinutes(125))
+
+console.log((125 % 60))
+console.log(Math.floor(125 / 60))
+
+const date = new Date();
+console.log(`${date.getHours()}:${date.getMinutes()}`)
+
+const people = [
+    { id1: 1, name1: "Alex" },
+    { id2: 2, name2: "Roger" },
+    { id3: 3, name3: "puja" },
+    { id4: 3, name4: "riya" },
+    { id5: 3, name5: "kajol" },
+    { id6: 3, name6: "dolly" },
+    { id7: 3, name7: "neha" },
+    { id8: 3, name8: "sima" },
+    { id9: 3, name9: "sikha" },
+    { id10: 3, name10: "mon" },
+];
+const counter = 3
+const check = people.slice(0, counter)
+const new_data = check.reduce((lookup, value) => lookup.add(value), new Set())
+console.log(new_data)
+console.log([...new_data])
+
+const l = [
+    { id: 1, name: "Alex" },
+    { id: 2, name: "Roger" },
+    { id: 3, name: "puja" },
+    { id: 4, name: "riya" },
+    { id: 5, name: "kajol" },
+    { id: 6, name: "dolly" },
+    { id: 7, name: "neha" },
+    { id: 8, name: "sima" },
+    { id: 9, name: "sikha" },
+    { id: 10, name: "mon" },
+]
+
+const selected = l.map(({ id, name }) => (id == 3 && `${name}` || id))
+const selected2 = l.map(({ id, name }) => (id == 3 ? `${name}` : id))
+console.log(selected)
+console.log(selected2)
+
+
+const final = l.map(({ id, name }) => (id == 3 && `${name}` || id)).filter(item => item == 'puja')
+console.log(final)
