@@ -8,7 +8,7 @@ try {
     unicycle;
     console.log('End of try run -- never reached')
 } catch (err) {
-    console.log("error has occured:• " + err) // err.stack
+    console.log("error has ocurred:• " + err) // err.stack
 } finally {
     console.log('This is always run')
 }

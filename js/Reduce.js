@@ -35,7 +35,7 @@ const names = ['LG', 'Kiwi', 'Dior', 'BMW']
 const new_string = names.reduce((str, name) => str + name, "")
 console.log(new_string)
 
-// This is not the best possible way
+// not the best possible way
 const new_string2 = names.reduce((str, name, index) => str + (index > 0 ? ", " : "") + name, "")
 console.log(new_string2)
 
@@ -65,10 +65,6 @@ console.log(testArray)
 const objA = { name: 'auturo', age: 53, gender: 'male' };
 const objB = { employed: 'auturo', ownMessage: "Gift", token: "tok_1M2YRhJmR8D0Lrgbamjxyh6K" };
 const array = [objA, objB];
-
-const o = { ...objA, ...objB }
-console.log(o)
-
 const merge = array.reduce((a, c) => Object.assign(a, c), {})
 console.log(merge)
 
@@ -120,50 +116,21 @@ const array_filler = groups.reduce((arr, [count, value]) => [
     ...arr,
     ...Array(count).fill(value)
 ], [])
-
 console.log(array_filler)
 
 
 //reduce to object
 const num_set = [12, 15, 12, 2, 6, 6, 2, 12]
-
 const lookup = {};
 for (const number of num_set) {
     lookup[number] = (lookup[number] ?? 0) + 1
 }
 console.log(lookup)
 
-// BREAK
-test = {}
-test[1] = (test[1] ?? 0) + 1
-console.log(test)
 
-
-const result_ = num_set.reduce((lookup, value) => ({
-    ...lookup,
-    [value]: (lookup[value] ?? 0) + 1
-}), {})
-console.log(result_)
-
-// BREAK
-console.log(Math.min(Infinity, 4))
-console.log(Math.max(Infinity, 4))
-console.log(Math.max(-Infinity, 4))
-
-const min_value = num_set.reduce(({ min, max }, value) => ({
-    min: Math.min(min, value),
-    max: Math.max(max, value),
-}), {
-    min: Infinity,
-    max: -Infinity
-})
-console.log(min_value)
-
-
-// Reduce with includes
-const _numbers = [1, 2, 3, 4, 5];
-const temp_ = _numbers.reduce((includes, value) => (includes ? includes : value === 3), false)
-const _temp = _numbers.reduce((includes, value) => (includes ? includes : value === 10), false)
+const number = [1, 2, 3, 4, 5];
+const temp_ = number.reduce((includes, value) => (includes ? includes : value === 3), false)
+const _temp = number.reduce((includes, value) => (includes ? includes : value === 10), false)
 console.log(temp_)
 console.log(_temp)
 
@@ -182,6 +149,7 @@ console.log(Math.floor(125 / 60))
 
 const date = new Date();
 console.log(`${date.getHours()}:${date.getMinutes()}`)
+
 
 const people = [
     { id1: 1, name1: "Alex" },
@@ -222,3 +190,51 @@ console.log(selected2)
 
 const final = l.map(({ id, name }) => (id == 3 && `${name}` || id)).filter(item => item == 'puja')
 console.log(final)
+
+const myArr = ['abc', 'def', '532', '4ad', 'qwe', 'hf', 'fjgfj'];
+const res = myArr.reduce((rows, key, index, array) => (index % array.length == 0 ? rows.push([key]) 
+  : rows[rows.length-1].push(key)) && rows, []);
+
+  console.log(res)
+
+  const newArray = myArr.reduce((a,b, index, array) => (index % array.length == 0 ? a.push([b]) : a[a.length-1].push(b)) && a,[])
+  console.log(newArray)
+
+
+  console.log(Object.entries(person1))
+console.log(Object.values(person1))
+
+
+const rows = ['row1', 'row2', 'row3', 'row4', 'row5']
+const result_ = rows.reduce((a, b, index) => [new Array(index).fill()], [])
+console.log(result_)
+
+
+
+const array_3 = ['abc', 'def', '532', '4ad', 'qwe', 'hf', 'fjgfj'];
+const COL = 3;
+const matrix = array_3.reduce((matrix, item, index) => {
+    if (index % COL === 0) {
+        matrix.push([]);
+    }
+    matrix[matrix.length - 1].push(item);
+    return matrix;
+}, [])
+console.log(matrix);
+
+var arr2D = new Array(1).fill(new Array(3).fill(2))
+console.log(arr2D)
+
+
+const arr_j = [] 
+arr_j.push([])
+arr_j
+console.log(arr_j.length)
+console.log(arr_j[arr_j.length-1])
+console.log(arr_j.length-1)
+arr_j[arr_j.length-1].push('b')
+arr_j
+arr_j.push([])
+arr_j
+console.log(arr_j.length)
+console.log(6%3)
