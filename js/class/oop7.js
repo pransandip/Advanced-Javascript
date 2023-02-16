@@ -1,4 +1,4 @@
-// If you print this prototype will show array
+// when you log this prototype will show array
 // but by default prototype is a object
 
 const numbers = new Array(1, 2, 3);
@@ -12,13 +12,15 @@ function Hello(name, age) {
   this.name = name;
   this.age = age;
 }
-console.log(Hello.prototype);
-
+// console.log(Hello.prototype);
 Hello.prototype = [];
-console.log(Hello.prototype);
+// console.log(Hello.prototype);
+Hello.prototype.push("item1");
+// console.log(Hello.prototype);
 
-Hello.prototype.push("item");
-console.log(Hello.prototype);
+const hlw = new Hello("sandy ry", 28);
+console.log(hlw);
 
-const temp = new Hello("dd", 12);
-console.log(temp);
+console.log(Object.getPrototypeOf(hlw));
+
+

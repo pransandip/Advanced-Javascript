@@ -7,8 +7,14 @@ const module = {
     }
 }
 
-const unboundGetx = module.getX.bind(module)
-console.log(unboundGetx())
+const newTObj = {
+  x: 66,
+};
+
+const unboundGetx = module.getX.bind(module);
+// const unboundGetx = module.getX.bind(newTObj);
+console.log(unboundGetx());
+
 
 
 /*---------BREAK-----------*/
@@ -75,3 +81,44 @@ class Base {
 const BoundBase = Base.bind(null, 1, 2);
 
 new BoundBase(3, 4);
+
+/*---------BREAK-----------*/
+
+/**
+ * * The new.target meta-property lets you detect whether a function or
+ * * constructor was called using the new operator. In constructors and
+ * * functions invoked using the new operator, new.target returns a reference
+ * * to the constructor or function that new was called upon. In normal function
+ * * calls, new.target is undefined.
+ */
+
+function Foo() {
+  if (!new.target) {
+    throw new TypeError("calling Foo constructor without new is invalid");
+  }
+}
+
+try {
+  // new Foo();
+  Foo();
+} catch (e) {
+  console.log(e);
+  // Expected output: TypeError: calling Foo constructor without new is invalid
+}
+
+/*---------BREAK-----------*/
+
+class A {
+  constructor() {
+    console.log(new.target.name);
+  }
+}
+
+class B extends A {
+  constructor() {
+    super();
+  }
+}
+
+const a = new A(); // Logs "A"
+const b = new B(); // Logs "B"
